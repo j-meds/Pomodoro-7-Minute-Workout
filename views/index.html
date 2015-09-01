@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>pomodoro-clock</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap_theme.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/site.css">
+</head>
+<body>
+
+<div class="container-fluid">
+	<div class="row" id="heading">
+		<div class="col-md-9 col-md-offset-3">
+			<img width="250px" src="http://i.imgur.com/L3dFb5l.png?1"/>
+			<span id="title"><span style="color: #541712;">Min</span>ute</span>
+			<span id="subTitle">Workouts</span>
+		</div>
+	</div>
+</div>
+
+<div ng-controller="myController as vm">
+	<div class="col-md-6 col-md-offset-3" style="background-color: #505050;" >
+		<h1 style="text-align:center">{{vm.message}}</h1>
+		 <div style="margin-left:30px">Workout Duration : 
+			<input style="color:black" class="form-control" ng-maxlength="2" type="number" ng-model="vm.seconds" />
+			Workout Break : 
+			<input style="color:black" class="form-control" ng-maxlength="2" type="number" ng-model="vm.breaks" />
+		</div>
+		<br><br>
+		<p>Timer</p>
+		<p class="well" ng-class="{'glow':vm.imp}">{{vm.seconds}}</p>
+		<p >Break</p>
+		<p class="well" ng-class="{'glow':vm.imp2}">{{vm.breaks}}</p>
+		<br>
+		<div class="col-md-offset-0">
+		<button ng-click="vm.pause()" class="button2"><span class="glyphicon glyphicon-remove-sign"></span>PAUSE</button>
+		<button ng-click="vm.reset()" class="button"><span class="glyphicon glyphicon-refresh"></span> RESET</button>
+		<button ng-click="vm.starts()" class="button3"><span class="glyphicon glyphicon-play-circle"></span>START</button>
+		</div>
+		<br><br>
+	</div>
+</div>
+
+	<script src="/angular/angular.js"></script>
+	<script src="/javascript/app.js"></script>
+
+</body>
+</html>
